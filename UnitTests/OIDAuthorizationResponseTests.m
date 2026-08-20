@@ -26,6 +26,7 @@
 #import "Sources/AppAuthCore/OIDAuthorizationRequest.h"
 #import "Sources/AppAuthCore/OIDAuthorizationResponse.h"
 #import "Sources/AppAuthCore/OIDGrantTypes.h"
+#import "Sources/AppAuthCore/OIDTokenRequest.h"
 #endif
 
 // Ignore warnings about "Use of GNU statement expression extension" which is raised by our use of
@@ -72,6 +73,26 @@ static NSString *const kTestTokenType = @"Token Type";
 /*! @brief Test value for the @c scopes property.
  */
 static NSString *const kTestScope = @"Scope";
+
+/*! @brief Test key for an entry in the @c additionalParameters property of the token exchange
+        request.
+ */
+static NSString *const kTestTokenExchangeParameterKey = @"B";
+
+/*! @brief Test value for an entry in the @c additionalParameters property of the token exchange
+        request.
+ */
+static NSString *const kTestTokenExchangeParameterValue = @"2";
+
+/*! @brief Test key for an entry in the @c additionalHeaders property of the token exchange
+        request.
+ */
+static NSString *const kTestTokenExchangeHeaderKey = @"C";
+
+/*! @brief Test value for an entry in the @c additionalHeaders property of the token exchange
+        request.
+ */
+static NSString *const kTestTokenExchangeHeaderValue = @"3";
 
 @implementation OIDAuthorizationResponseTests
 
@@ -184,6 +205,74 @@ static NSString *const kTestScope = @"Scope";
                         @"");
   XCTAssertEqualObjects(responseCopy.additionalParameters[kTestAdditionalParameterKey],
                         kTestAdditionalParameterValue, @"");
+}
+
+/*! @brief Tests that @c OIDAuthorizationResponse.tokenExchangeRequest creates a token request
+        with the correct parameters from the authorization response and its originating request.
+ */
+- (void)testTokenExchangeRequest {
+  OIDAuthorizationResponse *response = [[self class] testInstanceCodeFlow];
+  OIDTokenRequest *tokenExchangeRequest = [response tokenExchangeRequest];
+
+  XCTAssertEqualObjects(tokenExchangeRequest.configuration, response.request.configuration, @"");
+  XCTAssertEqualObjects(tokenExchangeRequest.grantType, OIDGrantTypeAuthorizationCode, @"");
+  XCTAssertEqualObjects(tokenExchangeRequest.authorizationCode, response.authorizationCode, @"");
+  XCTAssertEqualObjects(tokenExchangeRequest.redirectURL, response.request.redirectURL, @"");
+  XCTAssertEqualObjects(tokenExchangeRequest.clientID, response.request.clientID, @"");
+  XCTAssertNil(tokenExchangeRequest.clientSecret, @"");
+  XCTAssertNil(tokenExchangeRequest.scope, @"");
+  XCTAssertNil(tokenExchangeRequest.refreshToken, @"");
+  XCTAssertEqualObjects(tokenExchangeRequest.codeVerifier, response.request.codeVerifier, @"");
+  XCTAssertEqual(tokenExchangeRequest.additionalParameters.count, 0, @"");
+  XCTAssertEqual(tokenExchangeRequest.additionalHeaders.count, 0, @"");
+}
+
+/*! @brief Tests that a token exchange request created from an authorization response whose
+        originating request used client authentication carries over the client secret.
+ */
+- (void)testTokenExchangeRequestClientAuth {
+  OIDAuthorizationResponse *response = [[self class] testInstanceCodeFlowClientAuth];
+  OIDTokenRequest *tokenExchangeRequest = [response tokenExchangeRequest];
+
+  XCTAssertNotNil(response.request.clientSecret, @"");
+  XCTAssertEqualObjects(tokenExchangeRequest.clientSecret, response.request.clientSecret, @"");
+}
+
+/*! @brief Tests that additional parameters and headers passed to @c
+        OIDAuthorizationResponse.tokenExchangeRequestWithAdditionalParameters:additionalHeaders:
+        are set on the token request.
+ */
+- (void)testTokenExchangeRequestAdditionalParametersAndHeaders {
+  OIDAuthorizationResponse *response = [[self class] testInstanceCodeFlow];
+  OIDTokenRequest *tokenExchangeRequest =
+      [response tokenExchangeRequestWithAdditionalParameters:
+          @{ kTestTokenExchangeParameterKey : kTestTokenExchangeParameterValue }
+                                           additionalHeaders:
+          @{ kTestTokenExchangeHeaderKey : kTestTokenExchangeHeaderValue }];
+
+  XCTAssertEqualObjects(tokenExchangeRequest.authorizationCode, response.authorizationCode, @"");
+  XCTAssertEqualObjects(tokenExchangeRequest.additionalParameters,
+                        @{ kTestTokenExchangeParameterKey : kTestTokenExchangeParameterValue },
+                        @"");
+  XCTAssertEqualObjects(tokenExchangeRequest.additionalHeaders,
+                        @{ kTestTokenExchangeHeaderKey : kTestTokenExchangeHeaderValue },
+                        @"");
+}
+
+/*! @brief Tests that attempting to create a token exchange request from an authorization
+        response with no authorization code throws an exception.
+ */
+- (void)testTokenExchangeRequestNoAuthorizationCode {
+  OIDAuthorizationRequest *request = [OIDAuthorizationRequestTests testInstanceCodeFlow];
+  OIDAuthorizationResponse *response =
+      [[OIDAuthorizationResponse alloc] initWithRequest:request
+                                             parameters:@{ @"state" : kTestState }];
+
+  XCTAssertNil(response.authorizationCode, @"");
+  XCTAssertThrows([response tokenExchangeRequest], @"");
+  XCTAssertThrows([response tokenExchangeRequestWithAdditionalParameters:nil], @"");
+  XCTAssertThrows([response tokenExchangeRequestWithAdditionalParameters:nil
+                                                       additionalHeaders:nil], @"");
 }
 
 @end
