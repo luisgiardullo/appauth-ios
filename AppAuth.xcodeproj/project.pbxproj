@@ -30,6 +30,7 @@
 		2D81120F24C103F300984DA7 /* OIDTokenRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3417420E1C5D82D3000EF209 /* OIDTokenRequestTests.m */; };
 		2D81121024C103F300984DA7 /* OIDTokenResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 341742101C5D82D3000EF209 /* OIDTokenResponseTests.m */; };
 		2D81121124C103F300984DA7 /* OIDTokenUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EEF1FD20CF07760044F470 /* OIDTokenUtilitiesTests.m */; };
+		212D9F246870E995786C6A6D /* OIDErrorUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9660547D37ABB586147DFB /* OIDErrorUtilitiesTests.m */; };
 		2D81121224C103F300984DA7 /* OIDURLQueryComponentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 341742121C5D82D3000EF209 /* OIDURLQueryComponentTests.m */; };
 		2D81121324C103F300984DA7 /* OIDURLQueryComponentTestsIOS7.m in Sources */ = {isa = PBXBuildFile; fileRef = 341742131C5D82D3000EF209 /* OIDURLQueryComponentTestsIOS7.m */; };
 		2D81121424C103F300984DA7 /* OIDRegistrationRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60140F821DE43BAF00DA0DC3 /* OIDRegistrationRequestTests.m */; };
@@ -506,6 +507,7 @@
 		3489708E2177B3B000ABEED4 /* OIDRPProfileCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A6638A1E8865090060B664 /* OIDRPProfileCode.m */; };
 		3489708F2177B3B000ABEED4 /* OIDAuthorizationResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 341742031C5D82D3000EF209 /* OIDAuthorizationResponseTests.m */; };
 		348970902177B3B000ABEED4 /* OIDTokenUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EEF1FD20CF07760044F470 /* OIDTokenUtilitiesTests.m */; };
+		C984CB7B207BAF3E1EB6BC8C /* OIDErrorUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9660547D37ABB586147DFB /* OIDErrorUtilitiesTests.m */; };
 		348970922177B3B000ABEED4 /* AppAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343AAA541E83463400F9D36E /* AppAuth.framework */; };
 		3489709C2178F40600ABEED4 /* AppAuthCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 3489709A2178F40600ABEED4 /* AppAuthCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34A663291E871DD40060B664 /* OIDIDToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 34A663261E871DD40060B664 /* OIDIDToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -553,11 +555,17 @@
 		73F574382B7C42690023FFF0 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 73F574332B7C42690023FFF0 /* PrivacyInfo.xcprivacy */; };
 		73F574392B7C42690023FFF0 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 73F574332B7C42690023FFF0 /* PrivacyInfo.xcprivacy */; };
 		A5EEF29720D821120044F470 /* OIDTokenUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EEF1FD20CF07760044F470 /* OIDTokenUtilitiesTests.m */; };
+		C2EC3F6E78FED37836345E5E /* OIDErrorUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9660547D37ABB586147DFB /* OIDErrorUtilitiesTests.m */; };
 		A5EEF29820D8211A0044F470 /* OIDTokenUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EEF1FD20CF07760044F470 /* OIDTokenUtilitiesTests.m */; };
+		296FC55C0B32814AFEFB629B /* OIDErrorUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9660547D37ABB586147DFB /* OIDErrorUtilitiesTests.m */; };
 		A5EEF29920D8211B0044F470 /* OIDTokenUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EEF1FD20CF07760044F470 /* OIDTokenUtilitiesTests.m */; };
+		89A3CF8E80BE644360E76277 /* OIDErrorUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9660547D37ABB586147DFB /* OIDErrorUtilitiesTests.m */; };
 		A5EEF29A20D821960044F470 /* OIDTokenUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EEF1FD20CF07760044F470 /* OIDTokenUtilitiesTests.m */; };
+		A56C1FA5EF0169F71EF49D8C /* OIDErrorUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9660547D37ABB586147DFB /* OIDErrorUtilitiesTests.m */; };
 		A5EEF29B20D821970044F470 /* OIDTokenUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EEF1FD20CF07760044F470 /* OIDTokenUtilitiesTests.m */; };
+		D4CDA3F7E3F5C76A4A429A28 /* OIDErrorUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9660547D37ABB586147DFB /* OIDErrorUtilitiesTests.m */; };
 		A5EEF29C20D821970044F470 /* OIDTokenUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EEF1FD20CF07760044F470 /* OIDTokenUtilitiesTests.m */; };
+		846815779A497DC604B4EB2A /* OIDErrorUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FC9660547D37ABB586147DFB /* OIDErrorUtilitiesTests.m */; };
 		A6CEB11A2007E49C009D492A /* OIDEndSessionRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CEB1182007E384009D492A /* OIDEndSessionRequestTests.m */; };
 		A6CEB11B2007E49D009D492A /* OIDEndSessionRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CEB1182007E384009D492A /* OIDEndSessionRequestTests.m */; };
 		A6CEB11C2007E49E009D492A /* OIDEndSessionRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CEB1182007E384009D492A /* OIDEndSessionRequestTests.m */; };
@@ -835,6 +843,7 @@
 		60140F851DE43CC700DA0DC3 /* OIDRegistrationResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIDRegistrationResponseTests.m; sourceTree = "<group>"; };
 		73F574332B7C42690023FFF0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		A5EEF1FD20CF07760044F470 /* OIDTokenUtilitiesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OIDTokenUtilitiesTests.m; sourceTree = "<group>"; };
+		FC9660547D37ABB586147DFB /* OIDErrorUtilitiesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OIDErrorUtilitiesTests.m; sourceTree = "<group>"; };
 		A6CEB1172007E384009D492A /* OIDEndSessionRequestTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIDEndSessionRequestTests.h; sourceTree = "<group>"; };
 		A6CEB1182007E384009D492A /* OIDEndSessionRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIDEndSessionRequestTests.m; sourceTree = "<group>"; };
 		A6DEAB982018E4A20022AC32 /* OIDExternalUserAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIDExternalUserAgent.h; sourceTree = "<group>"; };
@@ -1122,6 +1131,7 @@
 				341742071C5D82D3000EF209 /* OIDResponseTypesTests.m */,
 				A6CEB1172007E384009D492A /* OIDEndSessionRequestTests.h */,
 				A6CEB1182007E384009D492A /* OIDEndSessionRequestTests.m */,
+				FC9660547D37ABB586147DFB /* OIDErrorUtilitiesTests.m */,
 				341742081C5D82D3000EF209 /* OIDScopesTests.m */,
 				341742091C5D82D3000EF209 /* OIDServiceConfigurationTests.h */,
 				3417420A1C5D82D3000EF209 /* OIDServiceConfigurationTests.m */,
@@ -2088,6 +2098,7 @@
 				2D81121624C103F300984DA7 /* OIDRPProfileCode.m in Sources */,
 				2D81120624C103C800984DA7 /* OIDAuthorizationRequestTests.m in Sources */,
 				2D81121124C103F300984DA7 /* OIDTokenUtilitiesTests.m in Sources */,
+				212D9F246870E995786C6A6D /* OIDErrorUtilitiesTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2217,6 +2228,7 @@
 				3417421B1C5D82D3000EF209 /* OIDResponseTypesTests.m in Sources */,
 				60140F831DE43BAF00DA0DC3 /* OIDRegistrationRequestTests.m in Sources */,
 				A5EEF29A20D821960044F470 /* OIDTokenUtilitiesTests.m in Sources */,
+				A56C1FA5EF0169F71EF49D8C /* OIDErrorUtilitiesTests.m in Sources */,
 				60140F861DE43CC700DA0DC3 /* OIDRegistrationResponseTests.m in Sources */,
 				341742191C5D82D3000EF209 /* OIDAuthStateTests.m in Sources */,
 				3417421D1C5D82D3000EF209 /* OIDServiceConfigurationTests.m in Sources */,
@@ -2230,6 +2242,7 @@
 			files = (
 				341AA50A1E7F3A9B00FCA5C6 /* OIDScopesTests.m in Sources */,
 				A5EEF29B20D821970044F470 /* OIDTokenUtilitiesTests.m in Sources */,
+				D4CDA3F7E3F5C76A4A429A28 /* OIDErrorUtilitiesTests.m in Sources */,
 				341AA50F1E7F3A9B00FCA5C6 /* OIDURLQueryComponentTests.m in Sources */,
 				A6CEB11B2007E49D009D492A /* OIDEndSessionRequestTests.m in Sources */,
 				341AA50B1E7F3A9B00FCA5C6 /* OIDServiceConfigurationTests.m in Sources */,
@@ -2253,6 +2266,7 @@
 			files = (
 				341AA4FD1E7F3A9400FCA5C6 /* OIDScopesTests.m in Sources */,
 				A5EEF29C20D821970044F470 /* OIDTokenUtilitiesTests.m in Sources */,
+				846815779A497DC604B4EB2A /* OIDErrorUtilitiesTests.m in Sources */,
 				341AA5021E7F3A9400FCA5C6 /* OIDURLQueryComponentTests.m in Sources */,
 				A6CEB11C2007E49E009D492A /* OIDEndSessionRequestTests.m in Sources */,
 				341AA4FE1E7F3A9400FCA5C6 /* OIDServiceConfigurationTests.m in Sources */,
@@ -2393,6 +2407,7 @@
 				A6CEB11D2007E49F009D492A /* OIDEndSessionRequestTests.m in Sources */,
 				343AAA741E8346B400F9D36E /* OIDAuthorizationResponseTests.m in Sources */,
 				A5EEF29720D821120044F470 /* OIDTokenUtilitiesTests.m in Sources */,
+				C2EC3F6E78FED37836345E5E /* OIDErrorUtilitiesTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2479,6 +2494,7 @@
 				A6CEB11E2007E4A1009D492A /* OIDEndSessionRequestTests.m in Sources */,
 				343AAB801E8349CE00F9D36E /* OIDAuthorizationResponseTests.m in Sources */,
 				A5EEF29820D8211A0044F470 /* OIDTokenUtilitiesTests.m in Sources */,
+				296FC55C0B32814AFEFB629B /* OIDErrorUtilitiesTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2539,6 +2555,7 @@
 				A6CEB11F2007E4A2009D492A /* OIDEndSessionRequestTests.m in Sources */,
 				343AAB8E1E8349CF00F9D36E /* OIDAuthorizationResponseTests.m in Sources */,
 				A5EEF29920D8211B0044F470 /* OIDTokenUtilitiesTests.m in Sources */,
+				89A3CF8E80BE644360E76277 /* OIDErrorUtilitiesTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2593,6 +2610,7 @@
 				3489708E2177B3B000ABEED4 /* OIDRPProfileCode.m in Sources */,
 				3489708F2177B3B000ABEED4 /* OIDAuthorizationResponseTests.m in Sources */,
 				348970902177B3B000ABEED4 /* OIDTokenUtilitiesTests.m in Sources */,
+				C984CB7B207BAF3E1EB6BC8C /* OIDErrorUtilitiesTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

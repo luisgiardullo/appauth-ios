@@ -29,12 +29,51 @@
   }
   if (description) {
     userInfo[NSLocalizedDescriptionKey] = description;
+  } else {
+    userInfo[NSLocalizedDescriptionKey] = [[self class] descriptionForErrorCode:code];
   }
-  // TODO: Populate localized description based on code.
   NSError *error = [NSError errorWithDomain:OIDGeneralErrorDomain
                                        code:code
                                    userInfo:userInfo];
   return error;
+}
+
++ (NSString *)descriptionForErrorCode:(OIDErrorCode)code {
+  switch (code) {
+    case OIDErrorCodeInvalidDiscoveryDocument:
+      return @"Invalid OpenID Connect discovery document.";
+    case OIDErrorCodeUserCanceledAuthorizationFlow:
+      return @"The authorization flow was canceled by the user.";
+    case OIDErrorCodeProgramCanceledAuthorizationFlow:
+      return @"The authorization flow was programmatically canceled.";
+    case OIDErrorCodeNetworkError:
+      return @"A network error occurred.";
+    case OIDErrorCodeServerError:
+      return @"A server error occurred.";
+    case OIDErrorCodeJSONDeserializationError:
+      return @"A problem occurred deserializing the response as JSON.";
+    case OIDErrorCodeTokenResponseConstructionError:
+      return @"A problem occurred constructing the token response from the JSON.";
+    case OIDErrorCodeSafariOpenError:
+      return @"Unable to open Safari to perform the authorization request.";
+    case OIDErrorCodeBrowserOpenError:
+      return @"Unable to open the browser to perform the authorization request.";
+    case OIDErrorCodeTokenRefreshError:
+      return @"A problem occurred refreshing the tokens.";
+    case OIDErrorCodeRegistrationResponseConstructionError:
+      return @"A problem occurred constructing the registration response from the JSON.";
+    case OIDErrorCodeJSONSerializationError:
+      return @"A problem occurred serializing the request as JSON.";
+    case OIDErrorCodeIDTokenParsingError:
+      return @"The ID Token could not be parsed.";
+    case OIDErrorCodeIDTokenFailedValidationError:
+      return @"The ID Token did not pass validation.";
+    case OIDErrorCodeURLMismatch:
+      return @"The URL did not match the expected redirect URI.";
+    case OIDErrorCodeInvalidAuthorizationFlow:
+      return @"No pending authorization flow matched the redirect URL.";
+  }
+  return @"An unknown error occurred.";
 }
 
 + (BOOL)isOAuthErrorDomain:(NSString *)errorDomain {
